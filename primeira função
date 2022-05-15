@@ -1,0 +1,8 @@
+def normaliza(dic):
+    saida={}
+    for k in dic.keys():
+        dic2=dic[k]
+        for z in dic2.keys():
+            dic3=dic2[z]
+            saida[z]=dic3
+    return saida
