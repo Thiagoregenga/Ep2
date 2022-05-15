@@ -1,0 +1,18 @@
+import math
+from math import pi
+def haversine(r,p1,a1,p2,a2):
+    p1r=p1*(pi/180)
+    a1r=a1*(pi/180)
+    p2r=p2*(pi/180)
+    a2r=a2*(pi/180)
+    dif1=float(p2r-p1r)
+    dif2=(a2r-a1r)
+    v1=math.sin(dif1/2)**2
+    v2=math.cos(p1r)
+    v3=math.cos(p2r)
+    v4=math.sin(dif2/2)**2
+    v5=v1+v2*v3*v4
+    v6=v5**(1/2)
+    d=2*r*math.asin(v6)
+    d2=d
+    return d2
