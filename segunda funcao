@@ -1,0 +1,4 @@
+import random
+def sorteia_pais(dic):
+    saida=list(dic.keys())
+    return random.choice(saida)
