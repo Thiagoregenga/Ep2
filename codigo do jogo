@@ -3971,3 +3971,54 @@ while True:
                 tentativas-=7
                 print('voce tem {} chances para acertar'.format(tentativas))
                 print()
+                chute=input('qual seu palpite ? ') 
+        elif chute=='desisto':
+          print('voce perdeu o pais era:{}'.format(pais))
+          print()
+          break
+        elif chute!=pais:
+            if chute not in dic1.keys():
+                print('país desconhecido')
+                chute=input('qual seu palpite ? ')
+            else:
+                dic3=normaliza2(dic1[chute])
+                geo2=dic3['geo']
+                latitude2=geo2['latitude']
+                longitude2=geo2['longitude']
+                dist=haversine(6371,latitude,longitude,latitude2,longitude2)
+                adiciona_em_ordem(chute,dist,distancias)
+                print('Distancias:')
+                for k in range(len(distancias)):
+                    lista1=distancias[k]
+                    print('{} -> {}'.format(lista1[1],lista1[0]))
+                tentativas-=1               
+                print('voce tem {} chances para acertar'.format(tentativas))
+                chute=input('qual seu palpite ? ')
+    if chute==pais:
+      print('***Parabens voce acertou após {} tentativas !!!'. format(tentativas))
+      jgnvm=input('jogar novamente ? [S/N] ')
+      if jgnvm=='N':
+        break
+      elif jgnvm=='S':
+        print('um pais foi escolhido, voce tem {} chances para acertar'.format(tentativas))
+        chute=input('qual seu palpite ? ')
+    if chute=='desisto':
+      jgnvm=input('jogar novamente ? [S/N] ')
+      if jgnvm=='N':
+        break
+      elif jgnvm=='S':
+        print('um pais foi escolhido, voce tem {} chances para acertar'.format(tentativas))
+        chute=input('qual seu palpite ? ')  
+    elif tentativas<=1:
+      print('voce perdeu o pais era:{}'.format(pais))
+      jgnvm=input('jogar novamente ? [S/N] ')
+      if jgnvm=='N':
+        break
+      elif jgnvm=='S':
+        print('um pais foi escolhido, voce tem {} chances para acertar'.format(tentativas))
+        chute=input('qual seu palpite ? ') 
+
+    
+            
+           
+         
