@@ -1,0 +1,21 @@
+import random 
+def sorteia_letra(string,lista):
+    if len(string)==0:
+        return ''
+    lista2=list(string.lower())
+    lista3=[]
+    k=0
+    for i in range(len(lista)):
+        lista3.append(lista[i].lower())
+    for z in lista2:
+        if z.isalnum()==False:
+            lista2.remove(z)
+    while k <=len(lista2)-1:
+        if lista2[k] in lista3:
+            lista2.remove(lista2[k])
+            k+=0
+        else:
+            k+=1
+    if lista2==[]:
+        return ''
+    return(random.choice(lista2))
