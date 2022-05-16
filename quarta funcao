@@ -1,0 +1,17 @@
+def adiciona_em_ordem(nome,dist,lista):
+    lista2=[nome,dist]
+    if nome in lista:
+        return lista
+    else:
+        if len(lista)==0:
+            lista.append(lista2)
+            return lista
+        for k in range(len(lista)):
+            d=lista[k]
+            e=lista[len(lista)-1]
+            if dist<d[1]:
+                lista.insert(k,lista2)
+                return lista
+            elif dist>e[1]:
+                lista.insert(len(lista),lista2)
+                return lista
