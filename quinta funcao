@@ -1,0 +1,9 @@
+def esta_na_lista(nome,lista):
+    cont=0
+    for k in range(len(lista)):
+        if nome in lista[k]:
+            cont+=1
+    if cont==0:
+        return False
+    else:
+        return True
