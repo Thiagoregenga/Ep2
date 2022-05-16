@@ -3916,3 +3916,58 @@ print('inventario = exibe sua posição')
 for i in range(3):
     print()
 dic1=normaliza(DADOS)
+while True:
+    tentativas=20
+    distancias=[]
+    pais=sorteia_pais(dic1)
+    y=dic1[pais]
+    dic2=normaliza2(y)
+    geo=dic2['geo']
+    area=dic2['area']
+    latitude=geo['latitude']
+    longitude=geo['longitude']
+    população=dic2['populacao']
+    capital=dic2['capital']
+    diccor=dic2['bandeira']
+    listarestr=[]
+    print('um pais foi escolhido, voce tem {} chances para acertar'.format(tentativas))
+    print()
+    print()
+    chute=input('qual seu palpite ? ')
+    while chute != pais and tentativas!=1:
+        if  chute=='dica':
+            print('1. cor da bandeira - custa 4 tentativas')
+            print('2. letra da capital - custa 3 tentativas')
+            print('3. area - custa 6 tentativas')
+            print('4. População - custa 5 tentativas')
+            print('5. continente - custa 7 tentativas')
+            print('0. sem dica')
+            opção=int(input('Escolha sua opcao [0/1/2/3/4/5] : '))
+            if opção==0:
+                chute=input('qual seu palpite ? ')
+            elif opção==1:
+                print(random.choices(list(diccor.keys()),weights=(diccor['vermelha'],diccor['laranja'],diccor['amarela'],diccor['verde'],diccor['azul'],diccor['azul claro'],diccor['preta'],diccor['branca'],diccor['outras']),k=1))
+                tentativas-=4
+                print('voce tem {} chances para acertar'.format(tentativas))
+                chute=input('qual seu palpite ? ')
+            elif opção==2:
+                saida=sorteia_letra(capital,listarestr)
+                print(saida)
+                listarestr.append(saida)
+                tentativas-=3
+                print('voce tem {} chances para acertar'.format(tentativas))
+                chute=input('qual seu palpite ? ')
+            elif opção==3:
+                print(area)
+                tentativas-=6
+                print('voce tem {} chances para acertar'.format(tentativas))
+                chute=input('qual seu palpite ? ')
+            elif opção==4:
+                tentativas-=5
+                print('voce tem {} chances para acertar'.format(tentativas))
+                print(população)
+                chute=input('qual seu palpite ? ')
+            elif opção==5:
+                tentativas-=7
+                print('voce tem {} chances para acertar'.format(tentativas))
+                print()
